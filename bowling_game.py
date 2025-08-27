@@ -6,6 +6,7 @@ class BowlingGame:
     def score(self):
         score = 0
         frame_index = 0
+        # For Loop replace 9 to 10 times
         for frame in range(10):  
             if self._is_strike(frame_index):
                 score += 10 + self._strike_bonus(frame_index)
