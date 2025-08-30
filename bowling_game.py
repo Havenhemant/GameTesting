@@ -32,7 +32,7 @@ class BowlingGame:
         TotalScore = 0
         FrameIndex = 0
         # For loop iterate 0 to 9 means ten times
-        # Refractor the game here because provided code contain 9 iterations only in For Loop
+        # Refactor the game here because provided code contain 9 iterations only in For Loop
         for Frame in range(10):
             if self.IsStrike(FrameIndex):
                 # first if condition track we don't go out of bounds for the last frame in the game
@@ -94,7 +94,7 @@ class BowlingGame:
         integer Data type: this function returns number of pins knocked down in the next roll after the spare
         """
         return self.Rolls[FrameIndex + 2]
-    # New function added in the provided code or refractor existing code to calculate the sum of two rolls in a frame with no strike or spare
+    # New function added in the provided code or Refactor existing code to calculate the sum of two rolls in a frame with no strike or spare
     def SumOfBallsInFrame(self, FrameIndex):
         """Above function used to calculate the sum of two rolls in a frame with no strike or spare
         
