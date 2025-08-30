@@ -125,6 +125,33 @@ class TestBowlingGame(unittest.TestCase):
         
         # using assert function testing actual score match the expected score or not
         self.assertEqual(ActualScore, ExpectedScore)
+    def test_consecutive_strikes(self):
+        """
+        fifth test a game with consecutive strikes.
+    
+        First strike: 10 + next two rolls that is 10 + 4 = 24
+        Second strike: 10 + next two rolls that is 4 + 2 = 16
+        Third frame: 4 + 2 = 6
+        Total: 24 + 16 + 6 = 46
+        """
+        print("\n next test : consecutive Strikes")
+       
+        Rolls = [10, 10, 4, 2] + [0] * 14
+        ExpectedScore = 46  # 10+(10+4)=24, 10+(4+2)=16, 4+2=6 → 24+16+6=46
+        
+     
+        for Pins in Rolls:
+            self.Game.Roll(Pins)
+      
+        ActualScore = self.Game.Score()
+
+        # print all data
+        print(f" rolls: {Rolls}")
+        print(f" expected score: {ExpectedScore}")
+        print(f" actual score: {ActualScore}")
+        print(" correct implementation:", "✓" if ActualScore == ExpectedScore else "✗")
+        
+        # using assert function testing actual score match the expected score or not
 if __name__ == '__main__':
     """
     main entry point for running the tests.
