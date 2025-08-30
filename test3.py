@@ -98,6 +98,33 @@ class TestBowlingGame(unittest.TestCase):
         
         # using assert function testing actual score match the expected score or not
         self.assertEqual(ActualScore, ExpectedScore)
+    def test_one_strike(self):
+        """
+        trying to test a game with one strike followed by normal rolls in the pins game.
+        and  strike   is when all 10 pins are knocked down in the first roll of a frame in the game.
+        and strike bonus adds the next two rolls pins to the strike frame.
+    
+        """
+        print("\nTest: One Strike")
+        # First frame contains strike 10 and same as second frame contains rolls 3 and 4, and then zeros for remaining rolls
+        Rolls = [10, 3, 4] + [0] * 16
+        ExpectedScore = 24  # 10 + 3+4 bonus + 3 + 4 = 24
+        
+    
+        for Pins in Rolls:
+            self.Game.Roll(Pins)
+
+        ActualScore = self.Game.Score()
+        
+       
+        # print all data
+        print(f" rolls: {Rolls}")
+        print(f" expected score: {ExpectedScore}")
+        print(f" actual score: {ActualScore}")
+        print(" correct implementation:", "✓" if ActualScore == ExpectedScore else "✗")
+        
+        # using assert function testing actual score match the expected score or not
+        self.assertEqual(ActualScore, ExpectedScore)
 if __name__ == '__main__':
     """
     main entry point for running the tests.
