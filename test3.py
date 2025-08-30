@@ -37,14 +37,40 @@ class TestBowlingGame(unittest.TestCase):
         ActualScore = self.Game.Score()
         
         # print the all details
-        print(f"Rolls: {Rolls}")
-        print(f"Expected score: {ExpectedScore}")
-        print(f"Actual score: {ActualScore}")
-        print("Correct implementation:", "✓" if ActualScore == ExpectedScore else "✗")
+        print(f"rolls : {Rolls}")
+        print(f"expected score : {ExpectedScore}")
+        print(f"actual score : {ActualScore}")
+        print("correct implementation :", "✓" if ActualScore == ExpectedScore else "✗")
         
         # Assert equal method used that the actual score matches the expected score
         self.assertEqual(ActualScore, ExpectedScore)
-
+    def test_all_ones(self):
+        """
+        next   test or second test a   game where all rolls knock down exactly one pin.
+        
+        This   could   provide   result in a total score of 20 and 1 pin per roll x 20 rolls.
+        without any spares or strikes.
+        """
+        print("\n Test case where All Ones")
+        # create a list of 20 rolls and all with 1 pin
+        Rolls = [1] * 20
+        ExpectedScore = 20
+        
+        # try to simulate all rolls in the game
+        for Pins in Rolls:
+            self.Game.Roll(Pins)
+        
+        # try to calculate the actual score
+        ActualScore = self.Game.Score()
+        
+        # print   test   data
+        print(f"rolls : {Rolls}")
+        print(f"expected score : {ExpectedScore}")
+        print(f"actual score : {ActualScore}")
+        print("correct implementation : ", "✓" if ActualScore == ExpectedScore else "✗")
+        
+        # testing actual score match the expected score or not
+        self.assertEqual(ActualScore, ExpectedScore)
 if __name__ == '__main__':
     """
     main entry point for running the tests.
