@@ -19,7 +19,7 @@ class TestBowlingGame(unittest.TestCase):
 
     def test_gutter_game(self):
         """
-        first test is created to test a gutter game where all rolls knock down zero pins.
+        first test is created to test a gutter game where all rolls knock down zero pins in the game.
         
         A gutter game method must return result in a total score of 0.
         This test provide information whether it's correctly handles this scenario.
