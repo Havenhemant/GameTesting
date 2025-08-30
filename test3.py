@@ -251,6 +251,6 @@ class TestBowlingGame(unittest.TestCase):
 if __name__ == '__main__':
     """
     main entry point for running the tests.
-    it runs all the test cases defined in this class using unittest's test runner.
+    it runs all above said the test cases defined in the above declared class using unittest's test runner.
     """
     unittest.main()
