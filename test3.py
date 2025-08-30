@@ -78,7 +78,7 @@ class TestBowlingGame(unittest.TestCase):
         The spare bonus adds the next rolls pins to the spare frame.
         
         """
-        print("\nTest: One Spare")
+        print("\n   test: One Spare")
         # First frame contains spare (5 + 5), second frame contains first roll 3 pins, then zeros for remaining rolls
         Rolls = [5, 5, 3] + [0] * 17
         ExpectedScore = 16  # 10 spare + 3 bonus + 3 next roll = 16
@@ -105,7 +105,7 @@ class TestBowlingGame(unittest.TestCase):
         and strike bonus adds the next two rolls pins to the strike frame.
     
         """
-        print("\nTest: One Strike")
+        print("\n     test: One Strike")
         # First frame contains strike 10 and same as second frame contains rolls 3 and 4, and then zeros for remaining rolls
         Rolls = [10, 3, 4] + [0] * 16
         ExpectedScore = 24  # 10 + 3+4 bonus + 3 + 4 = 24
@@ -161,7 +161,7 @@ class TestBowlingGame(unittest.TestCase):
         and next caluclate that the bonus for the spare is the pins from the extra roll.
         expected score is : 5 + 5 spare + 3 bonus = 13
         """
-        print("\nTest: Spare in Last Frame")
+        print("\n   test: Spare in Last Frame")
    
         Rolls = [0] * 18 + [5, 5, 3]
         ExpectedScore = 13 
@@ -180,7 +180,7 @@ class TestBowlingGame(unittest.TestCase):
         # using assert function testing actual score match the expected score or not
         self.assertEqual(ActualScore, ExpectedScore)
     def test_strike_in_last_frame(self):
-        print("\nTest: Strike in Last Frame")
+        print("\n   test: Strike in Last Frame")
         # First 9 frames and all zeros, 10th frame with strike and two extra rolls 3 and 4
         Rolls = [0] * 18 + [10, 3, 4]
         ExpectedScore = 17  # 10+3+4 = 17
@@ -218,6 +218,29 @@ class TestBowlingGame(unittest.TestCase):
         ActualScore = self.Game.Score()
         
         
+        print(f" rolls: {Rolls}")
+        print(f" expected score: {ExpectedScore}")
+        print(f" actual score: {ActualScore}")
+        print(" correct implementation:", "✓" if ActualScore == ExpectedScore else "✗")
+        
+        # using assert function testing actual score match the expected score or not
+        self.assertEqual(ActualScore, ExpectedScore)
+    def test_all_spares(self):
+        """
+        at last test a game with all spares.
+        Total : 10 frames x 15 points = 150
+        """
+        print("\n at last test: all spares")
+       
+        Rolls = [5] * 21
+        ExpectedScore = 150  # 10 frames × 10 + 5 bonus = 150
+        
+        for Pins in Rolls:
+            self.Game.Roll(Pins)
+        
+        ActualScore = self.Game.Score()
+        
+        # Print test data
         print(f" rolls: {Rolls}")
         print(f" expected score: {ExpectedScore}")
         print(f" actual score: {ActualScore}")
